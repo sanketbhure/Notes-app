@@ -1,32 +1,52 @@
-import React, { useState } from 'react'
-import "./NewNote.css"
+import React, { useEffect, useState } from 'react'
+import "./UpdateNote.css"
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 
 function NewNote() {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [content, setContent] = useState('')
 
-  const addNote = async ()=>{
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/notes`,
-    {
-      title: title,
-      category: category,
-      content: content
+  const loadNote = async (id) => {
+    if(!id) return
+
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/notes/${id}`)
+
+    setTitle(response.data.data.title)
+    setCategory(response.data.data.category)
+    setContent(response.data.data.content)
+  }
+
+  const updateNote = async () => {
+    const response = await axios.put(`${process.env.REACT_APP_API_URL}/notes/${id}`, {
+        title: title,
+        category: category,
+        content: content
     })
 
     toast.success(response.data.message)
-    setTitle('')
-    setCategory('')
-    setContent('')
+
+    window.location.href = '/'
   }
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    loadNote(id)
+  }, [id])
 
   return (
     <div>
-      <h1 className='app-header'>New Note</h1>
+      <h1 className='app-header'>Update Note</h1>
 
       <form className='form-new-note'>
+        <input type='text'
+            value={id}
+            disabled 
+            className='input-id'/>
+
         <input type="text"
         placeholder="Title"
         value={title}
@@ -57,9 +77,9 @@ function NewNote() {
 
         <button 
         type='button' 
-        onClick={addNote}
+        onClick={updateNote}
         className='button-save'>
-          Save
+          Update
         </button>
       </form>
 
