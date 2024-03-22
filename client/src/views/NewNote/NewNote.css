@@ -1,3 +1,19 @@
+.all-notes-link{
+    background-color: white;
+    margin-left: 80%;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.all-notes-link:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
 .form-new-note{
     background-color: #fff;
     width: 600px;
@@ -45,5 +61,10 @@
 @media screen and (max-width: 600px) {
     .form-new-note{
         width: 90%;
+    }
+
+    .all-notes-link{
+        font-size: 15px;
+        margin-left: 70%;
     }
 }

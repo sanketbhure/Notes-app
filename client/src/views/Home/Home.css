@@ -1,0 +1,22 @@
+.add-note-link{
+    background-color: white;
+    margin-left: 80%;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.add-note-link:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+    .add-note-link{
+        font-size: 15px;
+        margin-left: 70%;
+    }
+}

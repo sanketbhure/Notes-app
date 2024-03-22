@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./NewNote.css"
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 function NewNote() {
   const [title, setTitle] = useState('');
@@ -25,6 +26,8 @@ function NewNote() {
   return (
     <div>
       <h1 className='app-header'>New Note</h1>
+
+      <Link to={'/'} className='all-notes-link'>All Notes</Link>
 
       <form className='form-new-note'>
         <input type="text"
