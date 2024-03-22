@@ -39,3 +39,23 @@
     bottom: 10px;
     right: 80px;
 }
+
+@media screen and (max-width: 600px) {
+    .note-card-title{
+        margin-right: 80px;
+    }
+    .note-card-content{
+        margin-right: 50px;
+    }
+    .note-card-category{
+        right: 0;
+    }
+    .delete-icon{
+        bottom: 5px;
+        right: 10px;
+    }
+    .update-icon{
+        bottom: 5px;
+        right: 50px;
+    }
+}
